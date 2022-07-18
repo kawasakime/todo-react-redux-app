@@ -103,7 +103,6 @@ const boardsReducer = (state = initialState, action) => {
       if (toItem) toIndex = findItemIndex(toBoard, toItem) + 1;
       else toIndex = 0;
 
-      console.log(toItem);
       boards[toBoard].items.splice(toIndex, 0, item);
 
       return {

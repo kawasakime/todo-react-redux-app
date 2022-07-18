@@ -6,11 +6,8 @@ const BoardsList = () => {
 
   const saveToLocalStorage = () =>{
     localStorage.setItem('boards', JSON.stringify(boards))
-    console.log('FUCK')
   }
   saveToLocalStorage()
-   
-
 
   return (
     <div className="todo-wrapper">
