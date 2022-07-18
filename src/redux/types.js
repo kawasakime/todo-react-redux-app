@@ -1,0 +1,7 @@
+export const ADD_TASK_TO_BOARD = "ADD_TASK_TO_BOARD";
+export const MOVE_TASK = "MOVE_TASK";
+export const UPDATE_TASK = "UPDATE_TASK";
+export const REMOVE_TASK = "REMOVE_TASK";
+export const SET_CURRENT_BOARD = "SET_CURRENT_BOARD";
+export const SET_CURRENT_ITEM = "SET_CURRENT_ITEM";
+export const MOVE_ITEM_TO_INDEX = "MOVE_ITEM_TO_INDEX"

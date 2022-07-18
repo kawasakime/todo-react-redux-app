@@ -1,0 +1,50 @@
+@import "./variables";
+
+$btnColor: #2b2f3a;
+
+.header {
+  padding: 20px 0;
+
+  h1 {
+    color: $white;
+    font-size: 45px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+    input {
+      height: 40px;
+      width: 470px;
+      outline: none;
+      color: $black;
+      padding: 0 15px;
+      font-size: 16px;
+      border-radius: 2px;
+      border: none;
+    }
+
+    button {
+      background: $btnColor;
+      margin-left: 10px;
+      width: 100px;
+      height: 40px;
+      border: none;
+      cursor: pointer;
+      color: $white;
+      border-radius: 5px;
+      transition: .3s;
+      
+
+      &:hover {
+        background: $orange;
+        color: $black;
+      }
+    }
+  }
+}
