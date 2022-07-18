@@ -69,7 +69,6 @@ const boardsReducer = (state = initialState, action) => {
         boards: boards,
       };
     case UPDATE_TASK:
-
       boards[board].items[findItemIndex()].text = item.text;
 
       return {
@@ -81,7 +80,6 @@ const boardsReducer = (state = initialState, action) => {
       return {
         ...state,
         boards: boards,
-        itemsCount: state.itemsCount - 1,
       };
     case SET_CURRENT_BOARD:
       return {
@@ -111,7 +109,7 @@ const boardsReducer = (state = initialState, action) => {
       };
     default:
       return state;
-  }  
+  }
 };
 
 export default boardsReducer;

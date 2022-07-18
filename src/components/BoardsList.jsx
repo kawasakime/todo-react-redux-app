@@ -9,6 +9,8 @@ const BoardsList = () => {
   }
   saveToLocalStorage()
 
+  console.log(boards)
+
   return (
     <div className="todo-wrapper">
       {Object.keys(boards).map((board) => {
