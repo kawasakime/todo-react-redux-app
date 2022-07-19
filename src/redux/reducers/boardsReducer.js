@@ -8,11 +8,12 @@ import {
   UPDATE_TASK,
 } from "../types";
 
-const ls = localStorage.getItem("boards");
+const lsBoards = localStorage.getItem("boards"),
+      lsItemsCount = +localStorage.getItem("itemsCount");
 
 const initialState = {
-  boards: ls
-    ? JSON.parse(ls)
+  boards: lsBoards
+    ? JSON.parse(lsBoards)
     : {
         todo: {
           title: "Список задач",
@@ -27,7 +28,7 @@ const initialState = {
           items: [],
         },
       },
-  itemsCount: 0,
+  itemsCount: lsItemsCount ? lsItemsCount : 0,
   currentBoard: "",
   currentItem: {},
 };

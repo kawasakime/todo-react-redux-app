@@ -3,13 +3,13 @@ import Container from "./Container";
 
 const BoardsList = () => {
   const boards = useSelector((state) => state.boardsReducer.boards);
+  const itemsCount = useSelector(state => state.boardsReducer.itemsCount)
 
   const saveToLocalStorage = () =>{
     localStorage.setItem('boards', JSON.stringify(boards))
+    localStorage.setItem('itemsCount', itemsCount)
   }
   saveToLocalStorage()
-
-  console.log(boards)
 
   return (
     <div className="todo-wrapper">
