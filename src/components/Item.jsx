@@ -11,26 +11,35 @@ import {
   setCurrentBoard,
   setCurrentItem,
 } from "../redux/actions";
+import MoreBtn from "./UI/MoreBtn";
 
 const Item = ({ item, board }) => {
   const { id, text } = item,
-        [taskText, setTaskText] = useState(text),
-        [editable, setEditable] = useState(false);
+    [taskText, setTaskText] = useState(text),
+    [editable, setEditable] = useState(false);
 
   const currentBoard = useSelector((state) => state.boardsReducer.currentBoard),
-        currentItem = useSelector((state) => state.boardsReducer.currentItem);
+    currentItem = useSelector((state) => state.boardsReducer.currentItem);
 
   const dispatch = useDispatch();
+
+  function removeHereClass() {
+    [...document.querySelectorAll(".todo-item")].map((e) =>
+      e.classList.remove("here")
+    );
+  }
 
   const handlerDragOver = (e) => {
     e.preventDefault();
     if (e.target.classList.contains("todo-item")) {
       e.target.classList.add("here");
+    } else if (e.target.parentElement.classList.contains("todo-item")) {
+      e.target.parentElement.classList.add("here");
     }
   };
 
   const handlerDragLeave = (e) => {
-    e.target.classList.remove("here");
+    removeHereClass()
   };
 
   const handlerDragStart = (e, item, board) => {
@@ -39,7 +48,7 @@ const Item = ({ item, board }) => {
   };
 
   const handlerDragEnd = (e) => {
-    e.target.classList.remove("here");
+    removeHereClass()
   };
 
   const handlerDrop = (e, item, board) => {
@@ -73,12 +82,14 @@ const Item = ({ item, board }) => {
       ) : (
         <Textarea text={taskText} setText={setTaskText} />
       )}
+      <MoreBtn />
       <div className="btns">
         {board !== "complete" ? (
           <div>
             <EditBtn
               editable={editable}
               setEditable={setEditable}
+              setTaskText={setTaskText}
               item={{ id, text: taskText }}
               board={board}
             />

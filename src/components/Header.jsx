@@ -21,7 +21,6 @@ const Header = () => {
 
   return (
     <div className="header">
-      <h1>Планировщик задач</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

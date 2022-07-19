@@ -3,3 +3,7 @@ export const resize = (e) =>
 
 export const setCursorToEnd = (e, text) =>
   e.target.setSelectionRange(text.length, text.length);
+
+export const replaceText = (text) => {
+  return text.replace(/\r?\n|\r/g, ' ')
+}

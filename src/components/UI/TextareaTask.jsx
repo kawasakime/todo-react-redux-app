@@ -1,10 +1,10 @@
 import { useRef } from "react";
-import { resize, setCursorToEnd } from "../../utils/resize";
+import { resize, setCursorToEnd, replaceText} from "../../utils/scripts";
 
 const Textarea = ({ text, setText }) => {
   const handleChange = (e) => {
     e.preventDefault();
-    setText(e.target.value);
+    setText(replaceText(e.target.value));
     resize(e);
   };
 

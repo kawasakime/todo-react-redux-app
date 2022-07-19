@@ -1,17 +1,7 @@
 @import "./variables";
 
-$btnColor: #2b2f3a;
-
 .header {
-  padding: 20px 0;
-
-  h1 {
-    color: $white;
-    font-size: 45px;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-align: center;
-  }
+  padding: 10px 0 20px 0 ;
 
   form {
     display: flex;
@@ -30,7 +20,7 @@ $btnColor: #2b2f3a;
     }
 
     button {
-      background: $btnColor;
+      background: $orange;
       margin-left: 10px;
       width: 100px;
       height: 40px;
@@ -42,8 +32,8 @@ $btnColor: #2b2f3a;
       
 
       &:hover {
-        background: $orange;
-        color: $black;
+        background: $darkOrange;
+        text-shadow: 0px 0px 2px $white;
       }
     }
   }

@@ -1,10 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;700;900&display=swap");
 
-$bodyColor: #3d3d3d;
+@import "./variables.scss";
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  background: $bodyColor;
+  font-family: "Montserrat", sans-serif;
+  background: $black;
+
+  h1.title {
+
+    $titleBg: #21252e;
+
+    color: $white;
+    font-size: 35px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    background: $titleBg;
+    padding: 10px 0;
+    box-shadow: 0 0 10px 0 rgba($white, 0.05);
+    letter-spacing: 8px;
+  }
 }
 
 .wrapper {

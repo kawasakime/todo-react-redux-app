@@ -1,12 +1,37 @@
-@import './variables';
+@import "./variables";
 
 .todo-container {
   position: relative;
   max-width: 370px;
   width: 370px;
   background: $white;
-  border-radius: 5px;
-  padding: 10px 15px 20px 15px;
+  border-radius: 0 0 5px 5px;
+
+  &#todo {
+    border-top: 2px solid $red;
+  }
+
+  &#inProgress {
+    border-top: 2px solid $orange;
+  }
+
+  &#complete {
+    border-top: 2px solid $green;
+    .todo-item {
+      padding-left: 20px;
+
+      &::after {
+        content: "✔";
+        left: 7px;
+        transform: translateY(calc(-50% + 2px));
+      }
+      text-decoration: line-through;
+      color: $gray_3;
+      .text {
+        color: $gray_3;
+      }
+    }
+  }
 
   h1 {
     top: 10px;
@@ -14,21 +39,24 @@
     text-align: center;
     white-space: nowrap;
     font-weight: 700;
-    color: $black;
-    margin: 20px 0;
+    color: $white;
+    padding: 20px 0;
     text-transform: uppercase;
+    background: $darkBlue;
   }
 
   p {
     text-align: center;
     padding-top: 20px;
     padding-bottom: 10px;
-    border-top: 1px solid $gray_1;
+    margin: 0 0 10px 0;
   }
 
   .here {
+    border: 2px dashed #333;
+
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       height: 100%;
       width: 100%;
@@ -38,20 +66,24 @@
     }
   }
 
-
   .todo-item {
     position: relative;
     min-height: 40px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
-    overflow: hidden;
-    cursor:move;
-    
-    &:hover {
-      .btns {
-        margin-right: 0;
-      }
+    // margin-bottom: 10px;
+    padding: 10px 10px 10px 10px;
+    // margin: 4px 0;
+    cursor: move;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      left: 0px;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     .text {
@@ -62,7 +94,6 @@
       color: $black;
       font-size: 14.5px;
       min-height: 23px;
-      border-bottom: 1px solid $gray_2;
       padding: 4px 4px 2px 3px;
       line-height: normal;
       width: 100%;
@@ -81,8 +112,7 @@
       font-size: 16px;
       overflow: hidden;
       border: none;
-      border-bottom: 1px solid $gray_2;
-      color: $black;
+      color: $gray_3;
       font-size: 15px;
       font-family: "Roboto";
       line-height: normal;
@@ -90,9 +120,21 @@
       margin-bottom: 6px;
     }
 
+    .btns {
+      visibility: hidden;
+      z-index: 500;
+      background: $white;
+      position: absolute;
+      right: -38px;
+      border-radius: 2px;
+      transition: 0.3s ease-out;
+      box-shadow: 0px 2px 2px 0 rgba($black, 0.2);
+    }
+
     .move,
     .edit,
-    .remove {
+    .remove,
+    .more {
       display: flex;
       justify-content: flex-end;
       align-items: center;
@@ -108,6 +150,22 @@
       }
     }
 
+    .more {
+      z-index: 500;
+      justify-content: center;
+      width: 40px;
+      margin-right: -10px;
+      font-size: 20px;
+      * {
+        margin-bottom: -7px;
+      }
+    }
+
+    .more:hover + .btns,
+    .btns:hover {
+      visibility: visible;
+    }
+
     .edit {
       font-size: 29.5px;
       color: $white;
@@ -119,7 +177,7 @@
       }
       &:hover {
         * {
-          background: $orange;
+          background: $darkOrange;
         }
       }
       .done {
@@ -153,42 +211,5 @@
         }
       }
     }
-    .btns {
-      display: flex;
-      margin-right: -120px;
-      transition: .5s ease-out;
-
-      div {
-        display: flex;
-      }
-    }
-
-    
   }
-}
-
-#todo {
-  h1 {
-    color: $red;
-  }
-}
-
-#inProgress {
-  h1 {
-    color: $orange;
-  }
-}
-
-#complete {
-  h1 {
-    color: $green;
-  }
-  .todo-item {
-    text-decoration: line-through;
-    color: $gray_3;
-    .text {
-      color: $gray_3;
-    }
-  }
-
 }
